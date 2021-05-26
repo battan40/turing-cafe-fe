@@ -43,7 +43,7 @@ render() {
         type='number'
         placeHolder='Number of Guests'
         name='number'
-        value={this.state.name}
+        value={this.state.number}
         onChange={(event) => this.handleChange(event)}
 
       />
