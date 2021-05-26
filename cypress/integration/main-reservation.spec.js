@@ -5,4 +5,11 @@ describe('Show main view of Turing Reservation App', () => {
     cy.url().should('eq', 'http://localhost:3000/')
   })
 
+  it('Should display the title upon loading the page', () => {
+    cy.contains('h1', 'Turing Cafe Reservations')
+  })
+
+
+
+
 })
