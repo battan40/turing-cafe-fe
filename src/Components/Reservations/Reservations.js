@@ -12,7 +12,7 @@ const Reservations = ({ reservations }) => {
           name={reservation.name}
           date={reservation.date}
           time={reservation.time}
-          count={reservation.number}
+          number={reservation.number}
           key={reservation.id}
         />
       </div>
