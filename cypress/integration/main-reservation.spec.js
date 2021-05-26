@@ -33,7 +33,7 @@ describe('Show main view of Turing Reservation App', () => {
   })
 
   it('Should display all reservations on the main page', () => {
-    cy.get('article').find('.card').should('have.length', 9)
+    cy.get('article').find('.card').should('have.length', 7)
   })
 
 })
