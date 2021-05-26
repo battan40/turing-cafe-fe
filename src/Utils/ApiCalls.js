@@ -19,5 +19,6 @@ export const postNewReservation = (rezoData) => {
                return response.json()
              }
            })
+           .then(data => data)
            .catch(err => "Please try again later, it looks we're having trouble with our server today")
 }

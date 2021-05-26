@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Reservations from '../Reservations/Reservations'
 import Form from '../Form/Form'
-import {fetchReservations } from '../../Utils/ApiCalls'
+import { fetchReservations, postNewReservation } from '../../Utils/ApiCalls'
 import './App.css';
 
 class App extends Component {
@@ -19,6 +19,8 @@ class App extends Component {
 
   componentDidMount = () => {
     fetchReservations()
+    .then(data => this.setState({ reservations: [...data]}))
+    postNewReservation()
     .then(data => this.setState({ reservations: [...data]}))
   }
 
