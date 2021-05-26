@@ -17,8 +17,6 @@ class Form extends Component {
   }
 
 
-}
-
 render() {
   return(
     <form>
@@ -40,8 +38,11 @@ render() {
 
       />
 
+      <button onClick={(event) => this.submitReservation(event)}>➕ request reservation</button>
+
     </form>
   )
+  }
 }
 
 export default Form;
