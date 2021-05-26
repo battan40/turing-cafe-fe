@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchReservations } from '../../Utils/ApiCalls';
+import { fetchReservations, postNewReservation } from '../../Utils/ApiCalls';
 import './Form.css'
 
 class Form extends Component {
@@ -22,7 +22,8 @@ class Form extends Component {
       id: Date.now(),
       ...this.state
     }
-    this.props.addReservation(newRezo);
+    this.props.addReservation(newRezo)
+    postNewReservation()
 
   }
 
