@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Reservations from '../Reservations/Reservations'
+import Form from '../Form/Form'
 import {fetchReservations } from '../../Utils/ApiCalls'
 import './App.css';
 
@@ -12,6 +13,10 @@ class App extends Component {
     }
   }
 
+  addReservation = (newRezo) => {
+    this.setState({ reservations: [...this.state.reservations, newRezo]})
+  }
+
   componentDidMount = () => {
     fetchReservations()
     .then(data => this.setState({ reservations: [...data]}))
@@ -20,8 +25,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1 className='app-title'>Turing Cafe Reservations</h1>  
-          <Reservations className='resy-container' reservations={this.state.reservations}/>
+        <h1 className='app-title'>Turing Cafe Reservations</h1>
+          <Form
+          addReservation={this.addReservation}
+          />
+          <Reservations
+          className='resy-container'
+          reservations={this.state.reservations}
+          />
       </div>
     )
   }
