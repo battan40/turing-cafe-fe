@@ -20,7 +20,7 @@ const Reservations = ({ reservations }) => {
   })
 
   return(
-    <article className='reservations-container'>
+    <article className='resy-container'>
       { reservationCards }
     </article>
   )
