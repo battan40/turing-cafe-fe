@@ -1,5 +1,17 @@
 describe('Show main view of Turing Reservation App', () => {
 
+  beforeEach(() => {
+    cy.fixture('mockdata.json')
+      .then(mockData => {
+        cy.intercept('GET', 'http://localhost:3001/api/v1/reservations', {
+          statusCode: 200,
+          delay: 100,
+          body: mockData
+        })
+      })
+    cy.visit('http://localhost:3000')
+  });
+
   it('Should be able to visit the main page', () => {
     cy.visit('http://localhost:3000/')
     cy.url().should('eq', 'http://localhost:3000/')
