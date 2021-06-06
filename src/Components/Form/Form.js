@@ -7,7 +7,10 @@ class Form extends Component {
     super(props);
     this.state = {
       name: '',
+      date: '',
+      time: '',
       number: '',
+
     }
   }
 
@@ -20,20 +23,28 @@ class Form extends Component {
     event.preventDefault();
     const newRezo = {
       id: Date.now(),
-      ...this.state
+      name: this.state.name,
+      date: this.state.date,
+      time: this.state.time,
+      number: parseInt(this.state.number)
+
     }
     this.props.addReservation(newRezo)
-    postNewReservation()
-
+      postNewReservation(newRezo)
+      this.clearInputs()
   }
 
+  clearInputs = () => {
+    this.setState({ title: '', description: ''
+  });
+  }
 
 render() {
   return(
     <form>
       <input
         type='text'
-        placeHolder='Name'
+        placeholder='Name'
         name='name'
         value={this.state.name}
         onChange={(event) => this.handleChange(event)}
@@ -41,15 +52,33 @@ render() {
       />
 
       <input
+        type='text'
+        placeholder='Date'
+        name='date'
+        value={this.state.date}
+        onChange={(event) => this.handleChange(event)}
+
+      />
+
+      <input
         type='number'
-        placeHolder='Number of Guests'
+        placeholder='Enter Preferred Time'
+        name='time'
+        value={this.state.time}
+        onChange={(event) => this.handleChange(event)}
+
+      />
+
+      <input
+        type='number'
+        placeholder='Number of Guests'
         name='number'
         value={this.state.number}
         onChange={(event) => this.handleChange(event)}
 
       />
 
-      <button onClick={(event) => this.submitReservation(event)}>Request Reservation</button>
+      <button type='button' onClick={(event) => this.submitReservation(event)}>Request Reservation</button>
 
     </form>
   )

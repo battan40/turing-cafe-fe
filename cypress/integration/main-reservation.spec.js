@@ -9,6 +9,16 @@ describe('Show main view of Turing Reservation App', () => {
           body: mockData
         })
       })
+
+    cy.fixture('mockpost.json')
+      .then(mockPost => {
+        cy.intercept('POST', 'http://localhost:3001/api/v1/reservations',{
+          statusCode: 200,
+          delay: 100,
+          body: mockPost
+        })
+      })
+
     cy.visit('http://localhost:3000')
   });
 
